@@ -1,0 +1,41 @@
+package com.example.responsii.SharedPreferences;
+
+
+import android.content.Context;
+import android.content.SharedPreferences;
+
+public class Sharedprefmanager {
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
+
+    public Sharedprefmanager(Context context) {
+        sharedPreferences = context.getSharedPreferences("latihan shared preferences", Context.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+
+    }
+
+    public void saveString(String value) {
+        editor.putString("ini String", value);
+        editor.commit();
+
+    }
+
+    public String getString() {
+        return sharedPreferences.getString("ini_string", "");
+    }
+
+    public String getUsername() {
+        return sharedPreferences.getString("sp_username", "bilal");
+    }
+
+    public String getPassword(boolean value) {
+        return sharedPreferences.getString("sp_password", "123456");
+
+        public void saveIsLogin (Boolean value){
+            editor.putBoolean("sp_islogin", value);
+            editor.commit();
+        }
+        public Boolean getIsLogin () {
+            return sharedPreferences.getBoolean("sp_islogin", false);}
+    }
+}
